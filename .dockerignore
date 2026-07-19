@@ -1,0 +1,24 @@
+# Irrelevant to the combined image — keeps the build context small and fast
+mobile/
+scripts/
+site/
+docker-compose.yml
+render.yaml
+netlify.toml
+*.md
+.github/
+Lokl_CDC_v2_1.pdf
+
+# Dependencies — reinstalled fresh in each build stage
+**/node_modules/
+
+# Secrets — never enter the build context
+.env
+.env.*
+!.env.example
+mobile/env.json
+**/key.properties
+*.jks
+*.keystore
+
+.git/

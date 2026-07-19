@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ouvrir dans Lokl…</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: #1A1A2E; color: #fff; text-align: center;
+    }
+    .card { padding: 32px; max-width: 420px; }
+    .logo {
+      width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 20px;
+      background: #1A1A2E; border: 2px solid #00BCD4; display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 900; color: #00BCD4;
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { color: #9AA7B0; font-size: 14px; line-height: 1.6; margin: 0 0 24px; }
+    a.btn {
+      display: inline-block; background: #00BCD4; color: #fff; text-decoration: none;
+      padding: 14px 28px; border-radius: 14px; font-weight: 700; font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">L</div>
+    <h1>Ouverture dans Lokl…</h1>
+    <p>Si l'application ne s'ouvre pas, elle n'est pas encore installée sur cet appareil.
+       Téléchargez-la pour rejoindre l'événement.</p>
+    <a class="btn" href="/">Télécharger Lokl</a>
+  </div>
+  <script>
+    // /e/<eventId> → try the app via its custom scheme; if nothing grabs the
+    // intent (app not installed), the page simply stays visible with the
+    // download button. No timers needed: an installed app takes over the tab.
+    (function () {
+      var match = window.location.pathname.match(/^\/e\/([A-Za-z0-9]+)/);
+      if (match) window.location.href = 'lokl://event/' + match[1];
+    })();
+  </script>
+</body>
+</html>

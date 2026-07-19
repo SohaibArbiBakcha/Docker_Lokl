@@ -1,0 +1,20 @@
+{
+  "name": "lokl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --names \"API,ADMIN,FLUTTER\" --prefix-colors \"cyan,magenta,green\" \"npm run dev --prefix backend\" \"npm run dev --prefix admin\" \"cd mobile && C:/flutter/bin/flutter run -d chrome --web-port 8080\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:admin": "npm run dev --prefix admin",
+    "dev:flutter": "flutter run -d chrome --web-port 8080 --project-directory mobile",
+    "build:site": "cd admin && npm run build && cd .. && node scripts/build-site.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
